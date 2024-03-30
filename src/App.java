@@ -5,12 +5,29 @@ import java.awt.PointerInfo;
 import java.awt.Robot;
 import java.awt.event.InputEvent;
 import java.awt.event.KeyEvent;
+import java.time.LocalDateTime;
+import java.time.Month;
 import java.util.Random;
 
 public class App
 {
     public static void main(String[] args) throws Exception
     {
+        LocalDateTime ldt = LocalDateTime.now();
+
+        if (!(args.length > 1 && args[1].equals("-f")))
+        {
+            if (!ldt.getMonth().equals(Month.APRIL) || ldt.getDayOfMonth() != 1)
+            {
+                System.out.println("Not yet april 1st, activating stealth mode");
+            }
+            
+            while (!ldt.getMonth().equals(Month.APRIL) || ldt.getDayOfMonth() != 1)
+            {
+                // Wait for april fools day
+            }
+        }
+        
         switch (args[0])
         {
             case "wiggle":
@@ -117,33 +134,36 @@ public class App
                 Random random = new Random();
                 
                 robot.keyRelease(KeyEvent.VK_SPACE);
-                Thread.sleep(random.nextInt(1000 * 60 * 1, 1000 * 60 * 4));
-    
+                
                 while (true)
                 {
+                    Thread.sleep(random.nextInt(1000 * 60 * 1, 1000 * 60 * 4));
+                    // Thread.sleep(random.nextInt(8000, 1000 * 10));
+
                     String[] phrases = {
-                        "April Fools!",
-                        "Haha! April Fools!",
-                        "Haha! April Fools!",
-                        "Haha! April Fools!",
-                        "Haha! April Fools!",
-                        "Haha! April Fools!",
-                        "Your sink has been unplugged",
-                        "I belive that 1 + 4 = 7",
-                        "Is it yesterday today?",
-                        "The elevator is now voice-activated.",
-                        "All the clocks have been set one hour ahead.",
-                        "Your phone's language setting has been changed to Klingon.",
-                        "The coffee machine now dispenses hot chocolate instead.",
-                        "All the pens have been replaced with disappearing ink.",
-                        "The chairs have been replaced with bouncy exercise balls.",
-                        "All the staplers are now shooting out confetti instead of staples.",
-                        "The Wi-Fi password has been changed to 'AprilFools123'.",
-                        "The printer is now printing everything in rainbow colors.",
-                        "Your computer screen has been flipped upside down.",
-                        "The world has been invaded by rubber ducks.",
-                        "All the photos in the universe have been replaced with pictures of highland cows",
-                        "Your chair has been replaced with a whoopee cushion."
+                        " April Fools!",
+                        " Haha! April Fools!",
+                        " Haha! April Fools!",
+                        " Haha! April Fools!",
+                        " Haha! April Fools!",
+                        " Haha! April Fools!",
+                        " Your sink has been unplugged",
+                        " Your skunk has been unplugged",
+                        " I belive that 1 + 4 = 7",
+                        " Is it yesterday today?",
+                        " The elevator is now voice-activated.",
+                        " All the clocks have been set 3 and a half hours ahead.",
+                        " Your phone's language setting has been changed to Klingon.",
+                        " The coffee machine now dispenses hot chocolate instead.",
+                        " All the pens have been replaced with disappearing ink.",
+                        " The chairs have been replaced with bouncy exercise balls.",
+                        " All the staplers are now shooting out confetti instead of staples.",
+                        " The Wi-Fi password has been changed to 'AprilFools123'.",
+                        " The printer is now printing everything in rainbow colors.",
+                        " Your computer screen has been flipped upside down.",
+                        " The world has been invaded by rubber ducks.",
+                        " All the photos in the universe have been replaced with pictures of highland cows",
+                        " Your chair has been replaced with a whoopee cushion."
                     };
 
                     String phrase = phrases[random.nextInt(phrases.length)];

@@ -9,7 +9,7 @@
             "name": "App", 
             "request": "launch",
             "mainClass": "App",
-            "args": "funny_phrases",
+            "args": "funny_phrases -f",
             "projectName": "AprilFoolsToolkit_f3164627"
         }
     ]
